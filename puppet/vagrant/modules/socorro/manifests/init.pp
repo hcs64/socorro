@@ -94,7 +94,6 @@ class socorro::vagrant {
       'npm',
       'openldap-devel',
       'openssl-devel',
-      'pylint',
       'python-devel',
       'rpm-build',
       'rsync',
