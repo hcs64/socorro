@@ -13,7 +13,6 @@ ping_processor_rule_sets = [
         "socorro.lib.transform_rules.TransformRuleSystem",
         "apply_all_rules",
         "socorro.ping_processor.ping_transform_rules.RawCrashFromPing,"
-        "socorro.processor.mozilla_transform_rules.ProductRewrite,"
         "socorro.processor.mozilla_transform_rules.ESRVersionRewrite,"
         "socorro.processor.mozilla_transform_rules.PluginContentURL,"
         "socorro.processor.mozilla_transform_rules.PluginUserComment,"
@@ -45,8 +44,6 @@ ping_processor_rule_sets = [
         "socorro.processor.mozilla_transform_rules.BetaVersionRule, "
         "socorro.processor.mozilla_transform_rules.ExploitablityRule, "
         "socorro.processor.mozilla_transform_rules.FlashVersionRule, "
-        "socorro.processor.mozilla_transform_rules.OSPrettyVersionRule, "
-        "socorro.processor.mozilla_transform_rules.TopMostFilesRule, "
         "socorro.processor.mozilla_transform_rules.MissingSymbolsRule, "
         "socorro.processor.mozilla_transform_rules.ThemePrettyNameRule, "
         "socorro.processor.rules.memory_report_extraction"
