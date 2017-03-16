@@ -155,14 +155,25 @@ class SymbolicatePingRule(Rule):
 
         # make request
         try:
-            sym_result = requests.post(self.config.symbolication_api_url,
-                                       json=sym_request).json()
+            response = requests.post(self.config.symbolication_api_url,
+                                       json=sym_request)
+            response.raise_for_status()
         except IOError as e:
             self.config.logger.error(
                 'SymbolicatePingRule: '
                 'exception during symbolication request:\n%s',
                 e)
-            sym_result = None
+            response = None
+
+        sym_result = None
+        try:
+            if response:
+                sym_result = response.json()
+        except ValueError as e:
+            self.config.logger.error(
+                'SymbolicatePingRule: '
+                'exception in JSON decode:\n%s',
+                e)
 
         if sym_result:
             # mark missing_symbols by whether the module was known
