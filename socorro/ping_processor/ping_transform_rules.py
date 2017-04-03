@@ -136,6 +136,11 @@ class SymbolicatePingRule(Rule):
                 processed_frame.module = module.filename
                 processed_frame.module_offset = '0x%x' % module_offset_int
 
+                # skip uninteresting threads
+                if thread_idx != 0 and\
+                   thread_idx != processed.crash_info.crashing_thread:
+                   continue
+
                 # prepare this frame for symbol lookup
                 if 'debug_file' in module and 'debug_id' in module:
                     mp = self.debug_pair(module)
